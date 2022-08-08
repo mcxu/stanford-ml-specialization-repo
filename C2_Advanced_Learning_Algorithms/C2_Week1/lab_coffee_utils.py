@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('./deeplearning.mplstyle')
+plt.style.use('../deeplearning.mplstyle')
 import tensorflow as tf
 from tensorflow.keras.activations import sigmoid
 from matplotlib import cm
@@ -125,7 +125,7 @@ def plt_network(X,Y,netf):
 def plt_output_unit(W,b):
     """ plots a single unit function with 3 inputs """
     steps = 10
-    fig = plt.figure()
+    fig = plt.figure(figsize=(20, 20))
     ax = fig.add_subplot(projection='3d')
     x_ = np.linspace(0., 1., steps)
     y_ = np.linspace(0., 1., steps)
@@ -136,7 +136,7 @@ def plt_output_unit(W,b):
     for i in range(steps):
         for j in range(steps):
             for k in range(steps):
-                v = np.array([x[i,j,k],y[i,j,k],z[i,j,k]])
+                v = np.array([x[i,j,k], y[i,j,k], z[i,j,k]])
                 d[i,j,k] = tf.keras.activations.sigmoid(np.dot(v,W[:,0])+b).numpy()
     pcm = ax.scatter(x, y, z, c=d, cmap=cmap, alpha = 1 )
     ax.set_xlabel("unit 0"); 
