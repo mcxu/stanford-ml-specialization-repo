@@ -21,7 +21,7 @@ def load_precalc_params_small():
 
     file = open('./data/small_movies_W.csv', 'rb')
     W = loadtxt(file,delimiter = ",")
-
+    
     file = open('./data/small_movies_b.csv', 'rb')
     b = loadtxt(file,delimiter = ",")
     b = b.reshape(1,-1)
